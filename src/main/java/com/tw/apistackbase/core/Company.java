@@ -2,7 +2,7 @@ package com.tw.apistackbase.core;
 
 import javax.persistence.*;
 
-import static javax.persistence.FetchType.LAZY;
+import java.util.List;
 
 @Entity
 public class Company {
@@ -14,11 +14,10 @@ public class Company {
     private String name;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="profile")
     private Profile profile;
 
-    //private CompanyProfile profile;
-
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Employee> employees;
 
     public Long getId() {
         return id;
@@ -35,15 +34,6 @@ public class Company {
     public void setName(String name) {
         this.name = name;
     }
-
-    /*public CompanyProfile getProfile() {
-        return profile;
-    }
-
-    public void setProfile(CompanyProfile profile) {
-        this.profile = profile;
-    }*/
-
     public Profile getProfile() {
         return profile;
     }
@@ -59,5 +49,11 @@ public class Company {
         this.name = name;
     }
 
+    public List<Employee> getEmployees() {
+        return employees;
+    }
 
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
+    }
 }
