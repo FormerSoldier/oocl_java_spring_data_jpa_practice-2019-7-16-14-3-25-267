@@ -26,7 +26,10 @@ public class CompanyResource {
         return companyRepository.save(company);
     }
 
-
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id){
+        companyRepository.deleteById(id);
+    }
 
 
 }
