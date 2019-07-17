@@ -20,5 +20,13 @@ public class CompanyResource {
     public Company add(@RequestBody Company company) {
         return companyRepository.save(company);
     }
-    
+
+    @PutMapping
+    public Company update(@RequestBody Company company){
+        return companyRepository.save(company);
+    }
+
+
+
+
 }
