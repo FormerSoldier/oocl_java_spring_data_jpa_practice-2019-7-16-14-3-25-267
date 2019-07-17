@@ -21,6 +21,11 @@ public class CompanyResource {
         return companyRepository.save(company);
     }
 
+  /* @PostMapping(produces = {"application/json"})
+   public Company add(@RequestBody Company company) {
+       return companyRepository.saveAndFlush(company);
+   }*/
+
     @PutMapping
     public Company update(@RequestBody Company company){
         return companyRepository.save(company);
@@ -30,6 +35,5 @@ public class CompanyResource {
     public void delete(@PathVariable Long id){
         companyRepository.deleteById(id);
     }
-
 
 }
